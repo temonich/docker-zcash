@@ -7,7 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-transport-https wget a
 RUN wget -qO - https://apt.z.cash/zcash.asc | apt-key add - && \
     echo "deb [arch=amd64] https://apt.z.cash/ jessie main" | tee /etc/apt/sources.list.d/zcash.list && \
     apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y zcash
+    DEBIAN_FRONTEND=noninteractive apt-get install -y zcash curl
         
 RUN DEBIAN_FRONTEND=noninteractive apt-get remove -y apt-transport-https wget apt-utils && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
@@ -28,4 +28,4 @@ HEALTHCHECK --interval=5m --timeout=3s \
 
 EXPOSE 8233
 
-ENTRYPOINT start.sh
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/start.sh"]
