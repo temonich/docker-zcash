@@ -19,4 +19,3 @@ if ! [ -f "$ZCASH_PARAMS" ]; then
 fi
 
 zcashd
-
