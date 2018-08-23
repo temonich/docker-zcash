@@ -13,7 +13,6 @@ if ! [ -f "$ZCASH_CONF" ]; then
 	echo "rpcport=${RPCPORT:-8232}" >> ${ZCASH_CONF}
 fi
 
-
 ZCASH_PARAMS="$HOME/.zcash-params/sprout-verifying.key.dl"
 if ! [ -f "$ZCASH_PARAMS" ]; then
 	zcash-fetch-params
